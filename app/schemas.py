@@ -18,6 +18,9 @@ class post_create_data_schema(BaseModel):
     title: str
     content: str
 
+class post_update_data_schema(BaseModel):
+    title: str
+    content: str
 #user schemas
 class user_create_out_schema(BaseModel):
     id: int

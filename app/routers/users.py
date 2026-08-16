@@ -11,12 +11,12 @@ def create_user(data: user_create_data_schema, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"there is already a user with email: {data.email}")
         
     data.password = utils.hash_password(data.password)
-    new_user = models.User(**data.dict())
+    new_user = models.User(**data.model_dump())
 
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    print(new_user)
+
 
     return new_user
 

@@ -9,7 +9,7 @@ from app import models, oauth2
 router  =  APIRouter(tags=['Votes'])
 
 
-@router.post("/vote")
+@router.post("/votes")
 def vote(data: vote_data_schema, db:Session = Depends(get_db), current_user = Depends(oauth2.get_current_user)):
     the_post =  db.query(models.Post).filter(models.Post.id == data.post_id).first()
 
