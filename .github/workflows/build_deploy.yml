@@ -17,5 +17,6 @@ jobs:
             - name: download req
               run: pip install -r requirements.txt
             - name: test with pytest
-              run: pip install pytest
-                   pytest -vv
+              run: |
+                pip install pytest
+                pytest -vv
