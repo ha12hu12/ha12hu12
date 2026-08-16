@@ -2,6 +2,15 @@ name: Build and deploy code
 
 on: push
 
+env:
+  DATABASE_HOSTNAME: ${{ secrets.DATABASE_HOSTNAME }}
+  DATABASE_PORT: 5432
+  DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+  DATABASE_NAME: fastapi
+  DATABASE_USERNAME: postgres
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  ALGORITHM: ${{ secrets.ALGORITHM }}
+  ACCESS_TOKEN_EXPIRE_MINUTES: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}
 jobs:
     job1:
         runs-on: ubuntu-latest
